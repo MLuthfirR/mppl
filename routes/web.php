@@ -25,9 +25,12 @@ Route::get('/post/create','PostController@create')->name('post.create');
 Route::post('/post/create','PostController@store')->name('post.store');
 Route::get('/post/{id}/edit', 'PostController@edit')->name('post.edit');
 Route::patch('/post/{id}/edit', 'PostController@update')->name('post.update');
+Route::delete('/post/{id}/delete', 'PostController@destroy')->name('post.destroy');
+
 
 #Product
 Route::get('/product/create','ProductController@create')->name('product.create');
 Route::post('/product/create','ProductController@store')->name('product.store');
 Route::get('/product/{id}/edit', 'ProductController@edit')->name('product.edit');
 Route::patch('/product/{id}/edit', 'ProductController@update')->name('product.update');
+Route::delete('/product/{id}/delete', 'ProductController@destroy')->name('product.destroy');
