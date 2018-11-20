@@ -42,3 +42,7 @@ Route::get('/news/{id}/edit', 'NewsController@edit')->name('news.edit');
 Route::patch('/news/{id}/edit', 'NewsController@update')->name('news.update');
 Route::delete('/news/{id}/delete', 'NewsController@destroy')->name('news.destroy');
 
+#Feedback
+Route::get('/feedback/create','FeedbackController@create')->name('feedback.create');
+Route::post('/feedback/create','FeedbackController@store')->name('feedback.store');
+
