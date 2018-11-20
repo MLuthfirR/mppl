@@ -34,3 +34,11 @@ Route::post('/product/create','ProductController@store')->name('product.store');
 Route::get('/product/{id}/edit', 'ProductController@edit')->name('product.edit');
 Route::patch('/product/{id}/edit', 'ProductController@update')->name('product.update');
 Route::delete('/product/{id}/delete', 'ProductController@destroy')->name('product.destroy');
+
+#News
+Route::get('/news/create','NewsController@create')->name('news.create');
+Route::post('/news/create','NewsController@store')->name('news.store');
+Route::get('/news/{id}/edit', 'NewsController@edit')->name('news.edit');
+Route::patch('/news/{id}/edit', 'NewsController@update')->name('news.update');
+Route::delete('/news/{id}/delete', 'NewsController@destroy')->name('news.destroy');
+
