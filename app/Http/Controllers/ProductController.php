@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use App\Product;
 use App\Post;
 
@@ -25,14 +27,30 @@ class ProductController extends Controller
             'description' => 'required',
             'stock'=> 'required'
         ]);
+        
+        $image = $request->file('image');
+        $extension = $image->getClientOriginalExtension();
+        Storage::disk('public')->put($image->getFilename().'.'.$extension,  File::get($image));
+        
+        $product = new Product();
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->stock = $request->stock;
+        $product->mime = $image->getClientMimeType();
+        $product->original_filename =  $image->getClientOriginalName();
+        $product->filename = $image->getFilename().'.'.$extension;
+        $product->save();
+        
+        // Product::create([
+        //     'name' => request('name'),
+        //     'description' => request('description'),
+        //     'stock' => request('stock'),
+        //     'mime' => $image->getClientMimeType(),
+        //     'original_filename' => $image->getClientOriginalName(),
+        //     'filename' => $image->getFilename().'.'.$extension
+        // ]);
 
-        Product::create([
-            'name' => request('name'),
-            'description' => request('description'),
-            'stock' => request('stock')
-        ]);
-
-        return redirect()->route('post.index');
+        return redirect()->route('post.index')->with('success','Product added successfully...');
     }
 
     public function edit($id){

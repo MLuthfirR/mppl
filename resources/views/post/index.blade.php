@@ -37,6 +37,7 @@
                             </form>
                         </div>
                     </div>
+                    <img class="card-img-top" src="{{url('uploads/'.$product->filename)}}" alt="{{$product->filename}}">
                     <div class="card-body">
                     {{$product->description}}
                     </div>
