@@ -53,9 +53,7 @@ class NewsController extends Controller
     }
     public function destroy($id){
         $news = News::find($id);
-        $news->update([
-            'status' => 1
-        ]);
+        $news->delete();
 
         // return redirect()->route('post.index');
     }

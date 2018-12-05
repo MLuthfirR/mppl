@@ -39,6 +39,7 @@ class ProductController extends Controller
         $product->mime = $image->getClientMimeType();
         $product->original_filename =  $image->getClientOriginalName();
         $product->filename = $image->getFilename().'.'.$extension;
+        $product->category = $request->category;
         $product->save();
         
         // Product::create([

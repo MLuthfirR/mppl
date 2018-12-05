@@ -17,7 +17,17 @@ Route::get('/', function () {
 
 Auth::routes();
 
+#Route for landing page
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/landing', function () { return view('landing'); } );
+Route::get('/career', function () { return view('career'); } );
+Route::get('/news', function () { return view('news'); } );
+Route::get('/product', function () { return view('product'); } );
+Route::get('/about', function () { return view('about'); } );
+Route::get('/contact', function () { return view('contact'); } );
+Route::get('/news_detail', function () { return view('news_detail'); } );
+Route::get('/thinner', function () { return view('thinner'); } );
+Route::get('/cat', function () { return view('cat'); } );
 
 #Post/news
 Route::get('/post','PostController@index')->name('post.index');
