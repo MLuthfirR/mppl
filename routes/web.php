@@ -29,6 +29,13 @@ Route::get('/news_detail', function () { return view('news_detail'); } );
 Route::get('/thinner', function () { return view('thinner'); } );
 Route::get('/cat', function () { return view('cat'); } );
 
+#Route for admin page
+Route::get('admin-home', function () { return view('admin.admin-home'); } );
+Route::get('admin-product', function () { return view('admin.admin-product'); } );
+Route::get('admin-career', function () { return view('admin.admin-career'); } );
+Route::get('admin-add-product', function () { return view('admin.admin-add-product'); } );
+Route::get('admin-feedback', function () { return view('admin.admin-feedback'); } );
+
 #Post/news
 Route::get('/post','PostController@index')->name('post.index');
 Route::get('/post/create','PostController@create')->name('post.create');
