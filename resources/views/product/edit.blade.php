@@ -21,6 +21,11 @@
                                         <label for="">Stock</label>
                                     <input type="number" class="form-control" name="stock" value="{{$product->stock}}">
                                     </div>
+
+                                    <div class="form-group">
+                                        <label for="">Category</label>
+                                    <input type="text" class="form-control" name="category" placeholder="Product Category" value="{{$product->category}}">
+                                    </div>
                         
                                     <div class="form-group">
                                         <label for="">Description</label>

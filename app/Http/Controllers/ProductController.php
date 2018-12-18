@@ -39,40 +39,33 @@ class ProductController extends Controller
         $product->mime = $image->getClientMimeType();
         $product->original_filename =  $image->getClientOriginalName();
         $product->filename = $image->getFilename().'.'.$extension;
+        $product->category = $request->category;
         $product->save();
         
-        // Product::create([
-        //     'name' => request('name'),
-        //     'description' => request('description'),
-        //     'stock' => request('stock'),
-        //     'mime' => $image->getClientMimeType(),
-        //     'original_filename' => $image->getClientOriginalName(),
-        //     'filename' => $image->getFilename().'.'.$extension
-        // ]);
-
-        return redirect()->route('post.index')->with('success','Product added successfully...');
+        
+        return redirect()->route('admin-product')->with('success','Product added successfully...');
     }
 
     public function edit($id){
         $product = Product::find($id);
-        return view('product.edit', compact('product'));
+        return view('admin.admin-edit-product', compact('product'));
     }
 
-    public function update($id){
+    public function update($id, Request $request){
         $product = Product::find($id);
         
-        $product->update([
-            'name' => request('name'),
-            'description' => request('description'),
-            'stock' => request('stock')
-        ]);
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->stock = $request->stock;
+        $product->category = $request->category;
+        $product->update();
 
-        return redirect()->route('post.index');
+        return redirect()->route('admin-product');
     }
     public function destroy($id){
         $product = Product::find($id);
         $product->delete();
 
-        return redirect()->route('post.index');
+        return redirect()->route('admin-product');
     }
 }

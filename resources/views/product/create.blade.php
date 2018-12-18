@@ -26,6 +26,11 @@
             </div>
 
             <div class="form-group">
+                <label for="">Category</label>
+                <input type="text" class="form-control" name="category" placeholder="Product Category">
+            </div>
+
+            <div class="form-group">
                 <label for="">Description</label>
                 <textarea name="description" id="" cols="30" rows="5" class="form-control" placeholder="content"></textarea>
             </div>
