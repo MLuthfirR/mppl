@@ -16,7 +16,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <a class="btn btn-success" href="#" id="toggleNavColor">Add Career</a>
+                            <a class="btn btn-success" href="admin-add-career" id="toggleNavColor">Add Career</a>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -24,120 +24,26 @@
                                 <thead>
                                     <tr>
                                         <th>Vacancy</th>
-                                        <th>Requirement</th>
+                                        <th>Description</th>
                                         <th>Qualification</th>
-                                        <th>Choose</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($careers as $career)
                                     <tr class="odd gradeX">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 4.0</td>
-                                        <td>Win 95+</td>
+                                        <td>{{$career->name}}</td>
+                                        <td>{{$career->description}}</td>
+                                        <td>{{$career->qualification}}</td>
                                         <td class="center">
-                                            <a class="btn btn-primary" href="#" id="toggleNavColor">Edit</a>
-                                            <button type="button" class="btn btn-danger">Delete</button>
+                                        <a class="btn btn-primary" href="career/{{$career->id}}/edit" id="toggleNavColor">Edit</a>
+                                            <form action="{{ route('career.destroy',$career->id) }}" method="post">
+                                                    {{csrf_field()}}
+                                                    {{method_field('DELETE')}}
+                                                    <button type="submit" class="btn btn-danger">Hapus</button>
+                                            </form>
                                         </td>
                                     </tr>
-                                    <tr class="even gradeC">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 5.0</td>
-                                        <td>Win 95+</td>
-                                        <td class="center">
-                                            <a class="btn btn-primary" href="#" id="toggleNavColor">Edit</a>
-                                            <button type="button" class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 5.5</td>
-                                        <td>Win 95+</td>
-                                        <td class="center">
-                                            <a class="btn btn-primary" href="#" id="toggleNavColor">Edit</a>
-                                            <button type="button" class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="even gradeA">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 6</td>
-                                        <td>Win 98+</td>
-                                        <td class="center">
-                                            <a class="btn btn-primary" href="#" id="toggleNavColor">Edit</a>
-                                            <button type="button" class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 7</td>
-                                        <td>Win XP SP2+</td>
-                                        <td class="center">
-                                            <a class="btn btn-primary" href="#" id="toggleNavColor">Edit</a>
-                                            <button type="button" class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="even gradeA">
-                                        <td>Trident</td>
-                                        <td>AOL browser (AOL desktop)</td>
-                                        <td>Win XP</td>
-                                        <td class="center">
-                                            <a class="btn btn-primary" href="#" id="toggleNavColor">Edit</a>
-                                            <button type="button" class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Firefox 1.0</td>
-                                        <td>Win 98+ / OSX.2+</td>
-                                        <td class="center">
-                                            <a class="btn btn-primary" href="#" id="toggleNavColor">Edit</a>
-                                            <button type="button" class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Firefox 1.5</td>
-                                        <td>Win 98+ / OSX.2+</td>
-                                        <td class="center">
-                                            <a class="btn btn-primary" href="#" id="toggleNavColor">Edit</a>
-                                            <button type="button" class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Firefox 2.0</td>
-                                        <td>Win 98+ / OSX.2+</td>
-                                        <td class="center">
-                                            <a class="btn btn-primary" href="#" id="toggleNavColor">Edit</a>
-                                            <button type="button" class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Firefox 3.0</td>
-                                        <td>Win 2k+ / OSX.3+</td>
-                                        <td class="center">
-                                            <a class="btn btn-primary" href="#" id="toggleNavColor">Edit</a>
-                                            <button type="button" class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Camino 1.0</td>
-                                        <td>OSX.2+</td>
-                                        <td class="center">
-                                            <a class="btn btn-primary" href="#" id="toggleNavColor">Edit</a>
-                                            <button type="button" class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Camino 1.5</td>
-                                        <td>OSX.3+</td>
-                                        <td class="center">
-                                            <a class="btn btn-primary" href="#" id="toggleNavColor">Edit</a>
-                                            <button type="button" class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

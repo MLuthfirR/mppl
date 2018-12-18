@@ -17,7 +17,7 @@ class CreateCareersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('description');
-            $table->integer('qualification');
+            $table->text('qualification');
             $table->string('filename')->nullable();
             $table->string('mime')->nullable();
             $table->string('original_filename')->nullable();

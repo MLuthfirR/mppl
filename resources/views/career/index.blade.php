@@ -41,7 +41,7 @@
 								{{$career->description}}
 							</p>
 
-								Stock
+								Requirement
 								<i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
 								{{$career->qualification}}
 						</div>

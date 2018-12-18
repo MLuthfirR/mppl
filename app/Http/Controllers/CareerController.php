@@ -12,12 +12,12 @@ class CareerController extends Controller
 {
     public function index(){
         $careers = Career::all();
-        // return view('Career.index', compact('Careers'));
+        return view('career.index', compact('careers'));
     }
 
     public function create(){
 
-        // return view('Career.create');
+        return view('career.create');
     }
 
     public function store(Request $request){
@@ -32,47 +32,37 @@ class CareerController extends Controller
         $extension = $image->getClientOriginalExtension();
         Storage::disk('public')->put($image->getFilename().'.'.$extension,  File::get($image));
         
-        $career = new Career();
+        $career = new Career(); 
         $career->name = $request->name;
         $career->description = $request->description;
-        $career->stock = $request->stock;
+        $career->qualification = $request->qualification;
         $career->mime = $image->getClientMimeType();
         $career->original_filename =  $image->getClientOriginalName();
         $career->filename = $image->getFilename().'.'.$extension;
         $career->save();
-        
-        // Career::create([
-        //     'name' => request('name'),
-        //     'description' => request('description'),
-        //     'stock' => request('stock'),
-        //     'mime' => $image->getClientMimeType(),
-        //     'original_filename' => $image->getClientOriginalName(),
-        //     'filename' => $image->getFilename().'.'.$extension
-        // ]);
 
-        // return redirect()->route('post.index')->with('success','Career added successfully...');
+        return redirect()->route('admin-career')->with('success','Product added successfully...');
     }
 
     public function edit($id){
         $career = Career::find($id);
-        // return view('Career.edit', compact('Career'));
+        return view('admin.admin-edit-career', compact('career'));
     }
 
-    public function update($id){
+    public function update($id, Request $request){
         $career = Career::find($id);
         
-        $career->update([
-            'name' => request('name'),
-            'description' => request('description'),
-            'qualification' => request('qualification')
-        ]);
+        $career->name = $request->name;
+        $career->description = $request->description;
+        $career->qualification = $request->qualification;
+        $career->update();
 
-        // return redirect()->route('post.index');
+        return redirect()->route('admin-career');
     }
     public function destroy($id){
         $career = Career::find($id);
         $career->delete();
 
-        // return redirect()->route('post.index');
+        return redirect()->route('admin-career');
     }
 }

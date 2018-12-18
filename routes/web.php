@@ -32,9 +32,10 @@ Route::get('/cat', function () { return view('cat'); } );
 #Route for admin page
 Route::get('/admin-home', 'AdminController@index')->name('admin-home');
 Route::get('/admin-product', 'AdminController@product')->name('admin-product');
-Route::get('admin-career', function () { return view('admin.admin-career'); } );
-Route::get('admin-add-product', function () { return view('admin.admin-add-product'); } );
+Route::get('/admin-career', 'AdminController@career')->name('admin-career');
 Route::get('admin-feedback', function () { return view('admin.admin-feedback'); } );
+Route::get('admin-add-product', function () { return view('admin.admin-add-product'); } );
+Route::get('admin-add-career', function () { return view('admin.admin-add-career'); } );
 
 #Post/news
 Route::get('/post','PostController@index')->name('post.index');
@@ -61,6 +62,7 @@ Route::patch('/news/{id}/edit', 'NewsController@update')->name('news.update');
 Route::delete('/news/{id}/delete', 'NewsController@destroy')->name('news.destroy');
 
 #Career
+Route::get('/career', 'CareerController@index')->name('career.index');
 Route::get('/career/create','CareerController@create')->name('career.create');
 Route::post('/career/create','CareerController@store')->name('career.store');
 Route::get('/career/{id}/edit', 'CareerController@edit')->name('career.edit');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Career;
 
 class AdminController extends Controller
 {
@@ -23,5 +24,10 @@ class AdminController extends Controller
         return view('admin.admin-product', compact('products'));
     }
 
+    public function career()
+    {
+        $careers = Career::all();
+        return view('admin.admin-career', compact('careers'));
+    }
 
 }
