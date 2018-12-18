@@ -24,170 +24,26 @@
                                 <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>Image</th>
-                                        <th>Category</th>
-                                        <th>Description</th>
                                         <th>Stock</th>
-                                        <th>Choose</th>
+                                        <th>Category</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($products as $product)
                                     <tr class="odd gradeX">
-                                        <td>Catylax</td>
-                                        <td><span class="chat-img pull-left">
-                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-" />
-                                        </span></td>
-                                        <td>Cat</td>
-                                        <td>Internet Explorer 4.0</td>
-                                        <td>94</td>
+                                        <td>{{$product->name}}</td>
+                                        <td>{{$product->stock}}</td>
+                                        <td>{{$product->category}}</td>
                                         <td class="center">
-                                            <a class="btn btn-primary" href="#" id="toggleNavColor">Edit</a>
-                                            <button type="button" class="btn btn-danger">Delete</button>
+                                        <a class="btn btn-primary" href="product/{{$product->id}}/edit" id="toggleNavColor">Edit</a>
+                                            <form action="{{ route('product.destroy',$product->id) }}" method="post">
+                                                    {{csrf_field()}}
+                                                    {{method_field('DELETE')}}
+                                                    <button type="submit" class="btn btn-danger">Hapus</button>
+                                            </form>
                                         </td>
                                     </tr>
-                                    <tr class="even gradeC">
-                                        <td>Trident</td>
-                                        <td><span class="chat-img pull-left">
-                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-" />
-                                        </span></td>
-                                        <td>Cat</td>
-                                        <td>Internet Explorer 5.0</td>
-                                        <td>Win 95+</td>
-                                        <td class="center">
-                                            <a class="btn btn-primary" href="#" id="toggleNavColor">Edit</a>
-                                            <button type="button" class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>Trident</td>
-                                        <td><span class="chat-img pull-left">
-                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-" />
-                                        </span></td>
-                                        <td>Cat</td>
-                                        <td>Internet Explorer 5.5</td>
-                                        <td>Win 95+</td>
-                                        <td class="center">
-                                            <a class="btn btn-primary" href="#" id="toggleNavColor">Edit</a>
-                                            <button type="button" class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="even gradeA">
-                                        <td>Trident</td>
-                                        <td><span class="chat-img pull-left">
-                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-" />
-                                        </span></td>
-                                        <td>Cat</td>
-                                        <td>Internet Explorer 6</td>
-                                        <td>Win 98+</td>
-                                        <td class="center">
-                                            <a class="btn btn-primary" href="#" id="toggleNavColor">Edit</a>
-                                            <button type="button" class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>Trident</td>
-                                        <td><span class="chat-img pull-left">
-                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-" />
-                                        </span></td>
-                                        <td>Thinner</td>
-                                        <td>Internet Explorer 7</td>
-                                        <td>Win XP SP2+</td>
-                                        <td class="center">
-                                            <a class="btn btn-primary" href="#" id="toggleNavColor">Edit</a>
-                                            <button type="button" class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="even gradeA">
-                                        <td>Trident</td>
-                                        <td><span class="chat-img pull-left">
-                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-" />
-                                        </span></td>
-                                        <td>Thinner</td>
-                                        <td>AOL browser</td>
-                                        <td>Win XP</td>
-                                        <td class="center">
-                                            <a class="btn btn-primary" href="#" id="toggleNavColor">Edit</a>
-                                            <button type="button" class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td><span class="chat-img pull-left">
-                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-" />
-                                        </span></td>
-                                        <td>Thinner</td>
-                                        <td>Firefox 1.0</td>
-                                        <td>Win 98+ / OSX.2+</td>
-                                        <td class="center">
-                                            <a class="btn btn-primary" href="#" id="toggleNavColor">Edit</a>
-                                            <button type="button" class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td><span class="chat-img pull-left">
-                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-" />
-                                        </span></td>
-                                        <td>Thinner</td>
-                                        <td>Firefox 1.5</td>
-                                        <td>Win 98+ / OSX.2+</td>
-                                        <td class="center">
-                                            <a class="btn btn-primary" href="#" id="toggleNavColor">Edit</a>
-                                            <button type="button" class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td><span class="chat-img pull-left">
-                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-" />
-                                        </span></td>
-                                        <td>Thinner</td>
-                                        <td>Firefox 2.0</td>
-                                        <td>Win 98+ / OSX.2+</td>
-                                        <td class="center">
-                                            <a class="btn btn-primary" href="#" id="toggleNavColor">Edit</a>
-                                            <button type="button" class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td><span class="chat-img pull-left">
-                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-" />
-                                        </span></td>
-                                        <td>Thinner</td>
-                                        <td>Firefox 3.0</td>
-                                        <td>Win 2k+ / OSX.3+</td>
-                                        <td class="center">
-                                            <a class="btn btn-primary" href="#" id="toggleNavColor">Edit</a>
-                                            <button type="button" class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td><span class="chat-img pull-left">
-                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-" />
-                                        </span></td>
-                                        <td>Thinner</td>
-                                        <td>Camino 1.0</td>
-                                        <td>OSX.2+</td>
-                                        <td class="center">
-                                            <a class="btn btn-primary" href="#" id="toggleNavColor">Edit</a>
-                                            <button type="button" class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td><span class="chat-img pull-left">
-                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-" />
-                                        </span></td>
-                                        <td>Thinner</td>
-                                        <td>Camino 1.5</td>
-                                        <td>OSX.3+</td>
-                                        <td class="center">
-                                            <a class="btn btn-primary" href="#" id="toggleNavColor">Edit</a>
-                                            <button type="button" class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

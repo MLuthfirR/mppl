@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::post('/logout', 'Auth/login@logout');
 
 Auth::routes();
 
@@ -22,7 +23,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/landing', function () { return view('landing'); } );
 Route::get('/career', function () { return view('career'); } );
 Route::get('/news', function () { return view('news'); } );
-Route::get('/product', function () { return view('product'); } );
 Route::get('/about', function () { return view('about'); } );
 Route::get('/contact', function () { return view('contact'); } );
 Route::get('/news_detail', function () { return view('news_detail'); } );
@@ -30,8 +30,8 @@ Route::get('/thinner', function () { return view('thinner'); } );
 Route::get('/cat', function () { return view('cat'); } );
 
 #Route for admin page
-Route::get('admin-home', function () { return view('admin.admin-home'); } );
-Route::get('admin-product', function () { return view('admin.admin-product'); } );
+Route::get('/admin-home', 'AdminController@index')->name('admin-home');
+Route::get('/admin-product', 'AdminController@product')->name('admin-product');
 Route::get('admin-career', function () { return view('admin.admin-career'); } );
 Route::get('admin-add-product', function () { return view('admin.admin-add-product'); } );
 Route::get('admin-feedback', function () { return view('admin.admin-feedback'); } );
@@ -46,6 +46,7 @@ Route::delete('/post/{id}/delete', 'PostController@destroy')->name('post.destroy
 
 
 #Product
+Route::get('/product', 'ProductController@index')->name('product.index');
 Route::get('/product/create','ProductController@create')->name('product.create');
 Route::post('/product/create','ProductController@store')->name('product.store');
 Route::get('/product/{id}/edit', 'ProductController@edit')->name('product.edit');

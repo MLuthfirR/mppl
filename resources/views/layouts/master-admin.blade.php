@@ -168,8 +168,17 @@
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> Admin Profile</a>
                         </li>
-                        <li><a href="home"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
                     </ul>
                     <!-- /.dropdown-user -->
                 </li>
