@@ -42,6 +42,13 @@ Route::get('/news/{id}/edit', 'NewsController@edit')->name('news.edit');
 Route::patch('/news/{id}/edit', 'NewsController@update')->name('news.update');
 Route::delete('/news/{id}/delete', 'NewsController@destroy')->name('news.destroy');
 
+#Career
+Route::get('/career/create','CareerController@create')->name('career.create');
+Route::post('/career/create','CareerController@store')->name('career.store');
+Route::get('/career/{id}/edit', 'CareerController@edit')->name('career.edit');
+Route::patch('/career/{id}/edit', 'CareerController@update')->name('career.update');
+Route::delete('/career/{id}/delete', 'CareerController@destroy')->name('career.destroy');
+
 #Feedback
 Route::get('/feedback/create','FeedbackController@create')->name('feedback.create');
 Route::post('/feedback/create','FeedbackController@store')->name('feedback.store');
