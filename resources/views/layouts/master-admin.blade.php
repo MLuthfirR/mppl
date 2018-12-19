@@ -209,6 +209,9 @@
                         <li>
                             <a href="admin-career"><i class="fa fa-sitemap fa-fw"></i> Career</a>
                         </li>
+                        <li>
+                            <a href="admin-news"><i class="fa fa-newspaper-o fa-fw"></i> News</a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

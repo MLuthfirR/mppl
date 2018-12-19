@@ -9,13 +9,13 @@ use App\Post;
 class NewsController extends Controller
 {
     public function index(){
-        $news = News::all();
-        // return view('product.index', compact('products'));
+        $newss = News::all();
+        return view('news.index', compact('newss'));
     }
 
     public function create(){
 
-        // return view('product.create');
+        return view('news.create');
     }
 
     public function store(Request $request){
@@ -23,38 +23,36 @@ class NewsController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'description' => 'required',
-            'stock'=>'required'
             
         ]);
 
         News::create([
             'name' => request('name'),
             'description' => request('description'),
-            'stock' => request('stock'),
+            'status' => 1,
         ]);
 
-        // return redirect()->route('post.index');
+        return redirect()->route('admin-news')->with('success','News added successfully...');;
     }
 
     public function edit($id){
         $news = News::find($id);
-        // return view('product.edit', compact('product'));
+        return view('admin.admin-edit-news', compact('news'));
     }
 
-    public function update($id){
+    public function update($id, Request $request){
         $news = News::find($id);
         
-        $news->update([
-            'name' => request('name'),
-            'description' => request('description'),
-        ]);
+        $news->name = $request->name;
+        $news->description = $request->description;
+        $news->update();
 
-        // return redirect()->route('post.index');
+        return redirect()->route('admin-news');
     }
     public function destroy($id){
         $news = News::find($id);
         $news->delete();
 
-        // return redirect()->route('post.index');
+        return redirect()->route('admin-news');
     }
 }

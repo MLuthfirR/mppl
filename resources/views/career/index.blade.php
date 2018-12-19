@@ -29,7 +29,7 @@
 					<!-- Block1 -->
 					<div class="blo1">
 						<div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom pos-relative">
-							<img height="240px" src="{{url('uploads/'.$career->filename)}}" alt="IMG-INTRO">
+							<img style='width:240px'height="240px" width ="240px" src="{{url('uploads/'.$career->filename)}}" alt="IMG-INTRO">
 						</div>
 
 						<div class="wrap-text-blo1 p-t-35">

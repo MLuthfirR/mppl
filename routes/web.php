@@ -33,9 +33,11 @@ Route::get('/cat', function () { return view('cat'); } );
 Route::get('/admin-home', 'AdminController@index')->name('admin-home');
 Route::get('/admin-product', 'AdminController@product')->name('admin-product');
 Route::get('/admin-career', 'AdminController@career')->name('admin-career');
+Route::get('/admin-news', 'AdminController@news')->name('admin-news');
 Route::get('admin-feedback', function () { return view('admin.admin-feedback'); } );
 Route::get('admin-add-product', function () { return view('admin.admin-add-product'); } );
 Route::get('admin-add-career', function () { return view('admin.admin-add-career'); } );
+Route::get('admin-add-news', function () { return view('admin.admin-add-news'); } );
 
 #Post/news
 Route::get('/post','PostController@index')->name('post.index');
@@ -55,6 +57,7 @@ Route::patch('/product/{id}/edit', 'ProductController@update')->name('product.up
 Route::delete('/product/{id}/delete', 'ProductController@destroy')->name('product.destroy');
 
 #News
+Route::get('/news', 'NewsController@index')->name('news.index');
 Route::get('/news/create','NewsController@create')->name('news.create');
 Route::post('/news/create','NewsController@store')->name('news.store');
 Route::get('/news/{id}/edit', 'NewsController@edit')->name('news.edit');
