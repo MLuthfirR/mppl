@@ -25,7 +25,8 @@ class CareerController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'description' => 'required',
-            'qualification'=> 'required'
+            'qualification'=> 'required',
+            'image' => 'required'
         ]);
         
         $image = $request->file('image');

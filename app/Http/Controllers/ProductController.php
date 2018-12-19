@@ -25,7 +25,8 @@ class ProductController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'description' => 'required',
-            'stock'=> 'required'
+            'stock'=> 'required',
+            'image' => 'required'
         ]);
         
         $image = $request->file('image');
