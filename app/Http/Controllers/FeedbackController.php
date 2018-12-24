@@ -9,13 +9,13 @@ use App\Post;
 class FeedbackController extends Controller
 {
     public function index(){
-        $feedback = Feedback::all();
-        // return view('product.index', compact('products'));
+        $feedbacks = Feedback::all();
+        return view('admin.admin-feed', compact('feedbacks'));
     }
 
     public function create(){
 
-        // return view('product.create');
+        return view('contact');
     }
 
     public function store(Request $request){
@@ -35,7 +35,7 @@ class FeedbackController extends Controller
             'phone_number' => request('phone_number'),
         ]);
 
-        // return redirect()->route('post.index');
+        return view('landing');
     }
 
 }

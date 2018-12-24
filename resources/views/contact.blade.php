@@ -37,7 +37,8 @@
 				Send us a Message
 			</h3>
 
-			<form class="wrap-form-reservation size22 m-l-r-auto">
+			<form class="wrap-form-reservation size22 m-l-r-auto" action="{{ route('feedback.store') }}" method="post" enctype="multipart/form-data">
+				{{ csrf_field() }}
 				<div class="row">
 					<div class="col-md-4">
 						<!-- Name -->
@@ -46,7 +47,7 @@
 						</span>
 
 						<div class="wrap-inputname size12 bo2 bo-rad-10 m-t-3 m-b-23">
-							<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="name" placeholder="Your Name">
+							<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="subject" placeholder="Your Name">
 						</div>
 					</div>
 
@@ -68,7 +69,7 @@
 						</span>
 
 						<div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
-							<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="phone" placeholder="Phone Number">
+							<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="phone_number" placeholder="Phone Number">
 						</div>
 					</div>
 
@@ -77,7 +78,7 @@
 						<span class="txt9">
 							Message
 						</span>
-						<textarea class="bo-rad-10 size35 bo2 txt10 p-l-20 p-t-15 m-b-10 m-t-3" name="message" placeholder="Message"></textarea>
+						<textarea class="bo-rad-10 size35 bo2 txt10 p-l-20 p-t-15 m-b-10 m-t-3" name="description" placeholder="Message"></textarea>
 					</div>
 				</div>
 

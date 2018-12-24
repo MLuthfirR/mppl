@@ -212,6 +212,9 @@
                         <li>
                             <a href="admin-news"><i class="fa fa-newspaper-o fa-fw"></i> News</a>
                         </li>
+                        <li>
+                            <a href="admin-feed"><i class="fa fa-newspaper-o fa-fw"></i> feedback</a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

@@ -44,7 +44,7 @@
 					<!-- Block1 -->
 					<div class="blo1">
 						<div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom pos-relative">
-							<img height="240px" src="{{url('uploads/'.$product->filename)}}" alt="IMG-INTRO">
+							<img style="height:240px; width:200px" src="{{url('uploads/'.$product->filename)}}" alt="IMG-INTRO">
 						</div>
 
 						<div class="wrap-text-blo1 p-t-35">

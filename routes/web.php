@@ -34,7 +34,7 @@ Route::get('/admin-home', 'AdminController@index')->name('admin-home');
 Route::get('/admin-product', 'AdminController@product')->name('admin-product');
 Route::get('/admin-career', 'AdminController@career')->name('admin-career');
 Route::get('/admin-news', 'AdminController@news')->name('admin-news');
-Route::get('admin-feedback', function () { return view('admin.admin-feedback'); } );
+Route::get('admin-feed', 'FeedbackController@index')->name('admin-feed');
 Route::get('admin-add-product', function () { return view('admin.admin-add-product'); } );
 Route::get('admin-add-career', function () { return view('admin.admin-add-career'); } );
 Route::get('admin-add-news', function () { return view('admin.admin-add-news'); } );
@@ -74,5 +74,5 @@ Route::delete('/career/{id}/delete', 'CareerController@destroy')->name('career.d
 
 #Feedback
 Route::get('/feedback/create','FeedbackController@create')->name('feedback.create');
-Route::post('/feedback/create','FeedbackController@store')->name('feedback.store');
+Route::post('contact','FeedbackController@store')->name('feedback.store');
 
